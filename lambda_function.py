@@ -3,7 +3,7 @@ import uuid
 import boto3
 from botocore.exceptions import ClientError
 
-BUCKET_NAME = "PLACEHOLDER"
+BUCKET_NAME = "photo-album-cis4010"
 REGION = "us-east-1"
 
 s3 = boto3.client("s3", region_name=REGION)
