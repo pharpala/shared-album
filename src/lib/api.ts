@@ -1,4 +1,4 @@
-const LAMBDA_URL = "PLACEHOLDER";
+const LAMBDA_URL = "https://vfh2rowcts3ypzvfkhsye42h5y0fjrke.lambda-url.us-east-1.on.aws/";
 
 export async function createAlbum(): Promise<{ shareToken: string; albumId: string }> {
   const res = await fetch(LAMBDA_URL, {
