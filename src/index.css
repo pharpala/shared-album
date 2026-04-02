@@ -101,7 +101,27 @@
   }
 
   .photo-card {
-    @apply rounded-lg overflow-hidden relative group cursor-pointer;
+    @apply rounded-lg overflow-hidden relative cursor-pointer;
+  }
+
+  .photo-frame {
+    overflow: hidden;
+    border: 7px solid rgba(255, 255, 255, 0.90);
+    border-bottom-width: 30px;
+    box-shadow:
+      0 30px 70px -10px rgba(0, 0, 0, 0.95),
+      0 10px 30px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .film-grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 9999;
   }
 
   .photo-card img {
