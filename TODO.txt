@@ -1,0 +1,9 @@
+Create an S3 bucket, note the name, replace PLACEHOLDER in the file
+Enable Block Public Access on the bucket
+Enable SSE-S3 encryption (default encryption setting)
+Add the CORS config to the bucket
+Add the TLS-only bucket policy
+Create a Lambda function, runtime Python 3.12, assign LabRole
+Paste in your lambda_function.py, deploy
+Enable Lambda Function URL with auth type NONE
+Copy the Function URL and drop it into the frontend replacing PLACEHOLDER
