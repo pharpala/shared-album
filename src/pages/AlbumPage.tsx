@@ -33,7 +33,7 @@ const AlbumPage = () => {
     setUploading(true);
     try {
       for (const file of files) {
-        const uploadUrl = await getUploadUrl(shareToken, file.name);
+        const uploadUrl = await getUploadUrl(shareToken, file.name, file.type);
         await uploadFile(uploadUrl, file);
       }
       toast.success(`${files.length} photo${files.length > 1 ? "s" : ""} uploaded!`);

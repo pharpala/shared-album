@@ -10,11 +10,11 @@ export async function createAlbum(): Promise<{ shareToken: string; albumId: stri
   return res.json();
 }
 
-export async function getUploadUrl(shareToken: string, fileName: string): Promise<string> {
+export async function getUploadUrl(shareToken: string, fileName: string, fileType: string): Promise<string> {
   const res = await fetch(LAMBDA_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ action: "get_upload_url", shareToken, fileName }),
+    body: JSON.stringify({ action: "get_upload_url", shareToken, fileName, fileType }),
   });
   if (!res.ok) throw new Error("Failed to get upload URL");
   const data = await res.json();

@@ -65,6 +65,7 @@ def create_album() -> dict:
 def get_upload_url(body: dict) -> dict:
     share_token = body.get("shareToken")
     file_name = body.get("fileName")
+    file_type = body.get("fileType", "application/octet-stream")
 
     if not share_token or not file_name:
         return respond({"error": "shareToken and fileName are required"}, 400)
@@ -78,7 +79,7 @@ def get_upload_url(body: dict) -> dict:
 
     upload_url = s3.generate_presigned_url(
         "put_object",
-        Params={"Bucket": BUCKET_NAME, "Key": key},
+        Params={"Bucket": BUCKET_NAME, "Key": key, "ContentType": file_type},
         ExpiresIn=300,
     )
 
